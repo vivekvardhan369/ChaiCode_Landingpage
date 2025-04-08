@@ -1,6 +1,6 @@
 import React from "react";
 import privateEquityLogo from "../images/private-equity-logo.svg";
-import logo from "../images/logo_new.svg";
+import logo from "../images/logo_new.png";
 import { Link } from 'react-router-dom';
 
 const Footer = () => {

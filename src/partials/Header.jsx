@@ -1,8 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
-import logo from "../images/logo_new.svg";
 import heroBgV1 from "../images/hero-bg-v1.svg";
 import aboutBnrBg from "../images/about-bnr-bg.svg";
+import logo from "../images/logo_new.png";
 
 function Header() {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);

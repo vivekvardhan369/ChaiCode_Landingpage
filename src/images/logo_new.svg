@@ -1,9 +1,0 @@
-<svg width="200" height="50" viewBox="0 0 200 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0.14" stop-color="white"/>
-      <stop offset="0.75" stop-color="#9CA2D7"/>
-    </linearGradient>
-  </defs>
-  <text x="10" y="35" font-family="Arial, sans-serif" font-size="32" fill="url(#gradient)" font-weight="bold" letter-spacing="2">QUANFIA</text>
-</svg>
