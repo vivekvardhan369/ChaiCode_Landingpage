@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Inter:wght@400;500;600;700;800;900&display=fallback');
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+
+/* Additional styles */
+@import 'additional-styles/utility-patterns.css';
+@import 'additional-styles/range-slider.css';
+@import 'additional-styles/toggle-switch.css';
+@import 'additional-styles/theme.css';
+
+@import 'tailwindcss/utilities';
+
+/* Additional Tailwind directives: https://tailwindcss.com/docs/functions-and-directives/#responsive */
+@layer utilities {
+    .rtl {
+        direction: rtl;
+    }
+}
+
+/* See Alpine.js: https://github.com/alpinejs/alpine#x-cloak */
+[x-cloak=""] {
+    display: none;
+}
+
+@layer utilities {
+    .header-fixed {
+        @apply w-full border-b border-custom-border bg-custom-black py-4 fixed top-0 left-0 z-50 animate-smoothScroll;
+    }
+}
+
+:root {
+    --clr_blue: #1e3a8a; /* Adjust this color as needed */
+}
+
+/* Font styles and sizes */
+h1 {
+    font-size: 4rem !important; /* Larger heading size */
+    font-weight: 500 !important; /* Slightly less bold */
+    line-height: 1.1 !important; /* Tighter line height */
+    /* background-image: linear-gradient(to right, #8aabcd, #d6daea, #e8c485) !important; Fixed gradient syntax */
+    margin-bottom: 1.5rem !important; /* Reduced bottom margin */
+}
+
+.hero--desc p {
+    font-size: 1.25rem !important; /* Slightly larger body text */
+    line-height: 1.6 !important; /* Increased line height */
+    color: #ebebf0 !important; /* Pure white text */
+    margin-bottom: 0.5rem !important; /* Spacing between paragraphs */
+}
+
+
+
+/* Hero section layout adjustments */
+.hero__wrap {
+    padding-top: 4rem !important; /* More space at the top */
+    padding-right: 0 !important; /* Remove right padding */
+}
+
+.hero__left-col {
+    padding-left: 8rem !important; /* More left padding */
+}
+
+.hero--cnt {
+    padding-top: 0 !important; /* Remove top padding */
+    padding-left: 0 !important; /* Remove left padding */
+    max-width: 30rem !important; /* Wider content area */
+}
+
+.hero__right-col {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+}
+
+.hero--pic {
+    margin-right: 4rem !important; /* Add space on the right */
+}
+
+/* Trust statement at bottom */
+.hero::after {
+    position: absolute !important;
+    bottom: 2rem !important;
+    left: 0 !important;
+    right: 0 !important;
+    text-align: center !important;
+    color: #ffffff !important;
+    font-size: 1.25rem !important;
+    opacity: 0.8 !important;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+  
+.animate-scroll {
+    display: flex;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: scroll 20s linear infinite;
+}
+  
+.hero__lg-list {
+    display: flex;
+    gap: 6px;
+    width: 200%; /* Ensure the width is enough to create a seamless loop */
+}
+
+@layer components {
+    .bl__bnr-left {
+        @apply relative z-10 before:content-[''] before:absolute before:inset-0 before:-z-10;
+        @apply before:bg-[radial-gradient(96.04%_99.62%_at_0%_0%,#444A8D_0%,#242854_50%,#101129_100%)];
+    }
+  
+    .bl__bnr-right {
+        @apply relative z-10 overflow-hidden;
+    }
+}
+
+
+/* Masonry layout */
+
+.masonry-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .masonry-item {
+    position: absolute;
+    padding: 15px;
+    will-change: transform, width, height, opacity;
+  }
+  
+  .masonry-item-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  
+  /* Additional CSS for spotlight effect */
+  .spotlight-card:hover::before {
+    opacity: 1;
+  }
+  
+  .spotlight-card:hover::after {
+    opacity: 0.2;
+  }
+
+  /* logo swiper */
+  .logo-swiper {
+    padding: 10px 0;
+    overflow: visible;
+  }
+  
+  .logo-swiper .swiper-slide {
+    transition: transform 0.3s ease;
+  }
+  
+  .logo-swiper .swiper-slide:hover {
+    transform: scale(1.05);
+  }
