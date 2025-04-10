@@ -95,7 +95,7 @@ const FeaturesBlocks = () => {
       <div className="hero__logo-wrap flex flex-col items-center justify-center py-8 w-full">
         <div className="hero__lg-cnt text-center mb-6">
           <p className="text-lg font-medium text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-blue-100">
-            Finance firms that trust QuanFia
+            Our students are not only working in big tech companies but are now founders of funded startups and product creators.
           </p>
         </div>
         

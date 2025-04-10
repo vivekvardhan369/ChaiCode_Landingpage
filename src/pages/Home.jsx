@@ -10,14 +10,14 @@ import Banner from '../partials/Banner';
 import Footer from '../partials/Footer';
 import FeatureComparisonSlider from '../partials/FeatureComparisonSlider';
 import FeaturesAndOptions from '../partials/FeaturesAndOptions';
-import ProductDemoVideo from '../partials/ProductDemoVideo';
+import ProductDemoVideo from '../components/ProductDemoVideo';
 import DataInsights from '../partials/DataInsights';
 import SecurityFeatures from '../partials/SecurityFeatures';
 import NewsSection from '../partials/NewsSection';
 import ValuePropositionMain from '../partials/ValuePropositionMain';
 import QuanfiaDifference from '../partials/QuanfiaDifference';
 import ChatServiceArchitecture from '../partials/ChatServiceArchitecture';
-
+import TweetLove from '../partials/TweetLove';
 function Home() {
   const productDemoRef = useRef(null);
   return (
@@ -31,18 +31,19 @@ function Home() {
 </Helmet>
       {/*  Page sections */}
       <HeroHome productDemoRef={productDemoRef} />
+      {/* <ProductDemoVideo /> */}
+      <TweetLove/>
+      <FeaturesBlocks />
       <ValuePropositionMain />
       <FeaturesAndOptions />
       <ChatServiceArchitecture />
       <QuanfiaDifference />
       <DataInsights />
       <SecurityFeatures />
-      <FeaturesBlocks />
       {/* <FeaturesZigZag /> */}
       {/* <FeatureComparisonSlider /> */}
       {/* <NewsSection /> */}
       <div ref={productDemoRef}>
-      <ProductDemoVideo />
       </div>
     </>
   );

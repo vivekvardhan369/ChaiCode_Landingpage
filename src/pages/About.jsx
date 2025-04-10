@@ -12,7 +12,7 @@ import { Play } from "lucide-react";
 import HeroImage from '../images/hero-image-01.jpg';
 import ShimmerButton from '../components/ShimmerButton';
 import StarBorderButton from '../components/StarBorderButton';
-import ProductDemoVideo from '../partials/ProductDemoVideo';
+import ProductDemoVideo from '../components/ProductDemoVideo';
 
 
 const HeroSection = ({productDemoRef}) => {

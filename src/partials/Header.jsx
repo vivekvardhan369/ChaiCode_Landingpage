@@ -124,10 +124,10 @@ isScrolled
                     className="group relative w-40 cursor-pointer overflow-hidden rounded-full border bg-background p-2 text-center font-medium"
                   >
                     <span className="inline-block translate-x-1 transition-all duration-300 group-hover:translate-x-12 group-hover:opacity-0">
-                      Get a demo
+                      Login
                     </span>
                     <div className="absolute top-0 z-10 flex h-full w-full translate-x-12 items-center justify-center gap-2 text-primary-foreground opacity-0 transition-all duration-300 group-hover:-translate-x-1 group-hover:opacity-100">
-                      <span>Get a demo</span>
+                      <span>Login</span>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="24"
@@ -196,7 +196,7 @@ isScrolled
                       }}
                       className="block w-full text-black py-2.5 bg-amber-500 hover:bg-amber-400 rounded text-center font-medium transition-colors"
                     >
-                      Get a demo
+                      Login
                     </button>
                   </li>
                 </ul>
