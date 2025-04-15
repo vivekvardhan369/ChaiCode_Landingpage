@@ -130,7 +130,7 @@ const FeaturesBlocks = () => {
       </div>
       
       {/* Testimonials Section */}
-      <div className="flex items-center justify-center w-full py-8">
+      {/* <div className="flex items-center justify-center w-full py-8">
         <div className="w-full max-w-4xl">
           <h2 className="text-4xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-gray-200 to-yellow-400 leading-tight mb-10 text-center">
             Our Clients Speak
@@ -146,7 +146,7 @@ const FeaturesBlocks = () => {
             ))}
           </Slider>
         </div>
-      </div>
+      </div> */}
     </section>
   );
 };

@@ -18,6 +18,7 @@ import ValuePropositionMain from '../partials/ValuePropositionMain';
 import QuanfiaDifference from '../partials/QuanfiaDifference';
 import ChatServiceArchitecture from '../partials/ChatServiceArchitecture';
 import TweetLove from '../partials/TweetLove';
+import CohortsSection from '../partials/CohortSection';
 function Home() {
   const productDemoRef = useRef(null);
   return (
@@ -34,6 +35,7 @@ function Home() {
       {/* <ProductDemoVideo /> */}
       <TweetLove/>
       <FeaturesBlocks />
+      <CohortsSection/>
       <ValuePropositionMain />
       <FeaturesAndOptions />
       <ChatServiceArchitecture />
