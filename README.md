@@ -7,7 +7,7 @@ Auquan leverages AI to deliver deep insights in finance, allowing professionals 
 ## Features
 
 - AI-driven insights for asset management
-- Pre-written reports for analysts
+- Pre-written reports for analyst
 - Credit pre-diligence support
 - Thematic and local insights for emerging markets
 - Tracking underreported small cap company developments and risks
