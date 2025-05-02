@@ -1,8 +1,0 @@
-<svg width="300" height="32" viewBox="0 0 300 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- Logo Paths -->
-  <path opacity="0.4" d="M23.2488 20H8.77962C8.77962 20 6.67798 4.4051 21.7504 0.0472684C22.5021 -0.17112 23.2488 0.394704 23.2488 1.17892V20Z" fill="#A6ACDE"/>
-  <path opacity="0.6" d="M0.354492 20H15.8572C15.8572 20 18.1089 4.4051 1.95986 0.0472684C1.15983 -0.17112 0.354492 0.394704 0.354492 1.17892V20Z" fill="#A6ACDE"/>
-
-  <!-- Text with Gap -->
-  <text x="30" y="20" font-family="Arial" font-size="12" fill="#A6ACDE">Middle East based multi family office</text>
-</svg>
