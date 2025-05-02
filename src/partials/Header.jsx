@@ -1,7 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
-import heroBgV1 from "../images/hero-bg-v1.svg";
-import aboutBnrBg from "../images/about-bnr-bg.svg";
 import logo from "../images/logo_new.png";
 
 function Header() {
@@ -41,12 +39,38 @@ function Header() {
     return () => document.removeEventListener("keydown", keyHandler);
   });
 
+  // Handle navigation scroll to section
+  const handleNavClick = (e, sectionId) => {
+    e.preventDefault();
+    setMobileNavOpen(false); // Close mobile menu if open
+    
+    // Special case for Docs - external redirect
+    if (sectionId === "docs") {
+      window.open("https://docs.chaicode.com", "_blank");
+      return;
+    }
+    
+    // For internal scroll navigation
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  // Navigation items with their corresponding section IDs
+  const navItems = [
+    { name: "Cohorts", id: "cohortsSection" },
+    { name: "Udemy", id: "udemyCourseSlider" },
+    { name: "Docs", id: "docs" }, // External link
+    { name: "Reviews", id: "studentTestimonialsSection" }
+  ];
+
   return (
     <header
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-isScrolled
-  ? "bg-transparent bg-[#0D0E24] backdrop-blur-sm shadow-lg text-white"
-  : "bg-opacity-5 bg-[#79440b] text-white relative"
+      isScrolled
+        ? "bg-transparent bg-[#0D0E24] backdrop-blur-sm shadow-lg text-white"
+        : "bg-opacity-5 bg-[#79440b] text-white relative"
       }`}
     >
       {/* Background Overlays (Only When Not Scrolled) */}
@@ -74,11 +98,18 @@ isScrolled
             to="/"
             className="block"
             aria-label="Logo"
-            onClick={() => {
-              if (typeof document !== "undefined") {
+            onClick={(e) => {
+              e.preventDefault();
+              if (typeof window !== "undefined") {
                 const heroSection = document.getElementById("heroHomeSection");
                 if (heroSection) {
                   heroSection.scrollIntoView({ behavior: "smooth" });
+                } else {
+                  // Fallback if heroHomeSection doesn't exist
+                  window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                  });
                 }
               }
             }}
@@ -96,30 +127,28 @@ isScrolled
                 <div className="flex-grow"></div> {/* Spacer to push nav bar to the right */}
 
                { /* Desktop Navigation */}
-               <nav className="hidden md:flex md:grow">
-                  <ul className="flex items-center space-x-4">
-                    {["Cohorts", "Udemy", "Docs", "Reviews"].map((item) => (
-                      <li key={item}>
-                        <Link
-                          to={`/${item.toLowerCase()}`}
-                          className={`text-base font-normal hover:text-amber-300 px-5 py-2 transition-colors ${
-                            isScrolled ? "text-gray-100" : "text-white"
-                          }`}
-                        >
-                          {item}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
+               <nav className="hidden md:flex items-center">
+                <ul className="flex items-center space-x-4">
+                  {navItems.map((item) => (
+                    <li key={item.name}>
+                      <a
+                        href={`#${item.id}`}
+                        className={`text-base font-normal hover:text-amber-300 px-5 py-2 transition-colors ${
+                          isScrolled ? "text-gray-100" : "text-white"
+                        }`}
+                        onClick={(e) => handleNavClick(e, item.id)}
+                      >
+                        {item.name}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
                   {/* Spacer to push the button to the right */}
                   <div className="flex-grow mr-10"></div>
                   <button 
                     onClick={() => {
-                      document.dispatchEvent(
-                        new CustomEvent("requestDemo", {
-                          detail: { action: "openDemoPopup" },
-                        })
-                      );
+                      // Redirect to the login page
+                      window.location.href = "https://courses.chaicode.com/learn/account/signin";
                     }}
                     className="group relative w-40 cursor-pointer overflow-hidden rounded-full border bg-background p-2 text-center font-medium"
                   >
@@ -172,32 +201,28 @@ isScrolled
                   }`}
                 >
                   <div className="bg-gradient-to-b from-black to-gray-900 px-4 py-3 border-t border-amber-900/30">
-                  <ul className="space-y-2">
-                    {["Insights", "About", "Careers"].map((item) => (
-                    <li key={item}>
-                      <Link 
-                      to={`/${item.toLowerCase()}`} 
-                      className="block text-white py-2 transition-colors hover:text-amber-300"
-                      onClick={() => setMobileNavOpen(false)} // Close mobile menu after clicking
+                <ul className="space-y-2">
+                  {navItems.map((item) => (
+                    <li key={item.name}>
+                      <a 
+                        href={`#${item.id}`}
+                        className="block text-white py-2 transition-colors hover:text-amber-300"
+                        onClick={(e) => handleNavClick(e, item.id)}
                       >
-                      {item}
-                      </Link>
+                        {item.name}
+                      </a>
                     </li>
-                    ))}
-                    <li className="pt-1">
-                    <button
-                      onClick={() => {
-                        document.dispatchEvent(
-                          new CustomEvent('requestDemo', { 
-                            detail: { action: 'openDemoPopup' } 
-                          })
-                        );
-                        setMobileNavOpen(false); // Close mobile menu after clicking
-                      }}
-                      className="block w-full text-black py-2.5 bg-amber-500 hover:bg-amber-400 rounded text-center font-medium transition-colors"
-                    >
-                      Login
-                    </button>
+                  ))}
+                  <li className="pt-1">
+                  <button
+                    onClick={() => {
+                      window.location.href = "https://courses.chaicode.com/learn/account/signin";
+                      setMobileNavOpen(false); // Close mobile menu after clicking
+                    }}
+                    className="block w-full text-black py-2.5 bg-amber-500 hover:bg-amber-400 rounded text-center font-medium transition-colors"
+                  >
+                    Login
+                  </button>
                   </li>
                 </ul>
               </div>

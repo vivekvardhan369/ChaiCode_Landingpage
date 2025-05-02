@@ -1,52 +1,66 @@
-import React,{useRef} from 'react';
+import React, { useRef } from 'react';
 import { Helmet } from 'react-helmet';
 
 import HeroHome from '../partials/HeroHome';
 import FeaturesBlocks from '../partials/FeaturesBlocks';
-import FeaturesZigZag from '../partials/FeaturesZigzag';
-import Testimonials from '../partials/Testimonials';
-import Newsletter from '../partials/Newsletter';
-import Banner from '../partials/Banner';
-import Footer from '../partials/Footer';
-import FeatureComparisonSlider from '../partials/FeatureComparisonSlider';
-import FeaturesAndOptions from '../partials/FeaturesAndOptions';
-import ProductDemoVideo from '../components/ProductDemoVideo';
-import DataInsights from '../partials/DataInsights';
-import SecurityFeatures from '../partials/SecurityFeatures';
-import NewsSection from '../partials/NewsSection';
-import ValuePropositionMain from '../partials/ValuePropositionMain';
-import QuanfiaDifference from '../partials/QuanfiaDifference';
-import ChatServiceArchitecture from '../partials/ChatServiceArchitecture';
+import UdemyCourseSlider from '../partials/UdemyCourseSlider';
+import FreeAPILanding from '../partials/FreeAPILanding';
+import CohortBenefits from '../partials/CohortBenefits';
+import TopicsCloud from '../partials/TopicsCloud';
+import CommunityBanner from '../partials/CommunityBanner';
+import StudentTestimonialsSection from '../partials/StudentTestimonialsSection';
+import ChaiCodeSection from '../partials/ChaiCodeSection';
+import AlumniNetworkSection from '../partials/AlumniNetworkSection';
 import TweetLove from '../partials/TweetLove';
 import CohortsSection from '../partials/CohortSection';
+import ChaiCodeApp from '../partials/ChaiCodeApp';
+
 function Home() {
   const productDemoRef = useRef(null);
   return (
-<>
-<Helmet>
-  <title>Quanfia | Home</title>
-  <meta name="description" content="Quanfia leverages AI to transform financial workflows, reducing manual knowledge work by 80% or more. It is a chat service that helps you to get more leads and increase sales." />
-  <meta name="keywords" content="Quanfia, chat service, leads, increase sales" />
-  <meta name="author" content="Quanfia" />
-  <meta property="og:title" content="Quanfia | Home" />
-</Helmet>
-      {/*  Page sections */}
-      <HeroHome productDemoRef={productDemoRef} />
-      {/* <ProductDemoVideo /> */}
-      <TweetLove/>
-      <FeaturesBlocks />
-      <CohortsSection/>
-      <ValuePropositionMain />
-      <FeaturesAndOptions />
-      <ChatServiceArchitecture />
-      <QuanfiaDifference />
-      <DataInsights />
-      <SecurityFeatures />
-      {/* <FeaturesZigZag /> */}
-      {/* <FeatureComparisonSlider /> */}
-      {/* <NewsSection /> */}
-      <div ref={productDemoRef}>
+    <>
+      <Helmet>
+        <title>ChaiCode | Learn Coding</title>
+        <meta name="description" content="ChaiCode offers immersive coding courses to transform your career. Join our cohorts and learn from industry experts." />
+        <meta name="keywords" content="coding, programming, courses, cohorts, learn to code" />
+        <meta name="author" content="ChaiCode" />
+        <meta property="og:title" content="ChaiCode | Learn Coding" />
+      </Helmet>
+      
+      {/* Page sections with IDs for navigation */}
+      <div id="heroHomeSection">
+        <HeroHome productDemoRef={productDemoRef} />
       </div>
+      
+      <TweetLove />
+      
+      <FeaturesBlocks />
+      
+      <div id="cohortsSection">
+        <CohortsSection />
+      </div>
+      
+      <div id="studentTestimonialsSection">
+        <StudentTestimonialsSection />
+      </div>
+      
+      <div id="udemyCourseSlider">
+        <UdemyCourseSlider />
+      </div>
+      
+      <CohortBenefits />
+      
+      <AlumniNetworkSection />
+      
+      <ChaiCodeSection />
+      
+      <TopicsCloud />
+      
+      <CommunityBanner />
+      
+      <FreeAPILanding />
+      
+      <ChaiCodeApp />
     </>
   );
 }

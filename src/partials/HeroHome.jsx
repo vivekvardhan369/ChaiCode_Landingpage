@@ -84,7 +84,11 @@ function HeroHome({ productDemoRef }) {
             shimmerColor="#F59E0B"
             background="transparent" 
             borderRadius="1.8rem"
-            onClick={scrollToProductDemo}>
+            onClick={() => {
+              // Redirect to the login page
+              window.location.href = "https://courses.chaicode.com/learn/view-all?show=batch&type=17";
+            }}
+            >
             <span className="text-center font-semibold leading-none tracking-tight">
               Check All Live Courses
             </span>

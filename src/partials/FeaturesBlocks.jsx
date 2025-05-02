@@ -1,37 +1,32 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
-// Import all necessary Swiper styles
 import "swiper/css";
 import "swiper/css/autoplay";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import singaporeLogo from "../images/SingaporeLogo.svg";
-import middleEast from "../images/MiddleEast.svg";
+// Import corporate logos
+import microsoftLogo from "../images/microsoft-logo.png";
+import amazonLogo from "../images/amazon-logo.png";
+import googleLogo from "../images/google-logo.png";
+import metaLogo from "../images/meta-logo.jpg";
+import appleLogo from "../images/apple-logo.png";
+import netflixLogo from "../images/netflix-logo.png";
 
 const logos = [
-  { src: singaporeLogo, alt: "Singapore based multi family office", width: 157, height: 32 },
-  { src: middleEast, alt: "Middle East Investment Firm", width: 128, height: 20 },
-];
-
-const testimonials = [
-  {
-    quote:
-      "Having these reports prepared in advance is a significant benefit. Our analysts can dedicate more time to developing insightful conclusions rather than gathering information.",
-    author: "Singapore based multi family office",
-  },
-  {
-    quote:
-      "Quanfia effectively meets our credit pre-diligence needs. Previously, we encountered multiple false signals, as well as missing crucial information.",
-    author: "Middle East based multi family office",
-  }
+  { src: microsoftLogo, alt: "Microsoft", width: 140, height: 40 },
+  { src: amazonLogo, alt: "Amazon", width: 140, height: 40 },
+  { src: googleLogo, alt: "Google", width: 140, height: 40 },
+  { src: metaLogo, alt: "Meta", width: 120, height: 40 },
+  { src: appleLogo, alt: "Apple", width: 120, height: 40 },
+  { src: netflixLogo, alt: "Netflix", width: 140, height: 40 },
 ];
 
 const FeaturesBlocks = () => {
-  // Create many more duplicates to ensure continuous flow
-  const extendedLogos = Array(10).fill(logos).flat();
+  // Create duplicates to ensure continuous flow
+  const extendedLogos = Array(5).fill(logos).flat();
 
   // For logos - make sure Autoplay module is properly configured
   const swiperSettings = {
@@ -39,72 +34,44 @@ const FeaturesBlocks = () => {
     autoplay: {
       delay: 0,
       disableOnInteraction: false,
-      pauseOnMouseEnter: false,
+      pauseOnMouseEnter: true,
     },
     speed: 5000,
     loop: true,
     loopFillGroupWithBlank: true,
     loopAdditionalSlides: 10,
     slidesPerView: 'auto',
-    spaceBetween: 60,
+    spaceBetween: 80,
     freeMode: true,
     allowTouchMove: false,
     watchSlidesProgress: true,
     grabCursor: false,
   };
 
-  // For testimonials
-  const sliderSettings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 3000,
-    arrows: true,
-    responsive: [
-      {
-        breakpoint: 1081,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 992,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  };
-
-  // ADDED THE RETURN STATEMENT THAT WAS MISSING
   return (
-    <section className="bg-[#0B0D1F] flex flex-col items-center justify-center py-0 px-4 overflow-hidden">
-      {/* Logo Section */}
-      <div className="hero__logo-wrap flex flex-col items-center justify-center py-8 w-full">
-        <div className="hero__lg-cnt text-center mb-6">
-          <p className="text-lg font-medium text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-blue-100">
-            Our students are not only working in big tech companies but are now founders of funded startups and product creators.
+    <section className="bg-[#000001] flex flex-col items-center justify-center py-16 px-4 overflow-hidden border-t border-gray-800">
+      {/* Logo Section with increased height */}
+      <div className="flex flex-col items-center justify-center py-10 w-full">
+        <div className="text-center mb-10 max-w-3xl mx-auto">
+          <h2 className="text-3xl font-bold mb-4 text-amber-300">
+            Where Our Students Work
+          </h2>
+          <p className="text-lg font-medium text-gray-300 mb-2">
+            Our graduates have been hired by top tech companies worldwide
+          </p>
+          <p className="text-base text-gray-400">
+            From startups to Fortune 500 companies, ChaiCode alumni are making an impact everywhere
           </p>
         </div>
         
-        {/* Logo Marquee with Swiper */}
-        <div className="hero__lg-list w-full overflow-hidden relative">
-          <div className="max-w-5xl mx-auto">
+        {/* Logo Marquee with Swiper - Increased height and improved visuals */}
+        <div className="w-full overflow-hidden relative py-8 bg-[#0B0C1F] ">
+          <div className="absolute inset-0 bg-gradient-to-r from-[#000001] via-transparent to-[#000001] z-10 pointer-events-none"></div>
+          
+          <div className="max-w-6xl mx-auto">
             <Swiper
               {...swiperSettings}
-              className="logo-swiper py-4"
+              className="logo-swiper py-8"
               wrapperClass="items-center"
             >
               {extendedLogos.map((logo, index) => (
@@ -113,40 +80,23 @@ const FeaturesBlocks = () => {
                   className="swiper-slide" 
                   style={{ width: 'auto' }}
                 >
-                  <div className="flex items-center justify-center px-6">
+                  <div className="flex flex-col items-center justify-center px-8 py-4 mx-4 h-32">
                     <img
                       src={logo.src}
                       alt={logo.alt}
-                      width={logo.width * 2.5}
-                      height={logo.height * 2.5}
-                      className="h-auto max-h-16 opacity-70 hover:opacity-100 transition-opacity duration-300"
+                      width={logo.width}
+                      height={logo.height}
+                      className="h-16 w-auto opacity-60 hover:opacity-100 transition-all duration-500 filter grayscale hover:grayscale-0 mb-3"
                     />
+                    <span className="text-amber-400/70 text-sm font-medium mt-2">{logo.alt}</span>
                   </div>
                 </SwiperSlide>
               ))}
             </Swiper>
           </div>
         </div>
+        
       </div>
-      
-      {/* Testimonials Section */}
-      {/* <div className="flex items-center justify-center w-full py-8">
-        <div className="w-full max-w-4xl">
-          <h2 className="text-4xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-gray-200 to-yellow-400 leading-tight mb-10 text-center">
-            Our Clients Speak
-          </h2>
-          <Slider {...sliderSettings}>
-            {testimonials.map((testimonial, index) => (
-              <div key={index} className="p-8">
-                <p className="text-2xl text-white leading-relaxed mb-4">"{testimonial.quote}"</p>
-                <span className="block mt-6 text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-blue-100">
-                  {testimonial.author}
-                </span>
-              </div>
-            ))}
-          </Slider>
-        </div>
-      </div> */}
     </section>
   );
 };

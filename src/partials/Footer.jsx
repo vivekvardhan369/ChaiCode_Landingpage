@@ -1,189 +1,111 @@
 import React from "react";
-import privateEquityLogo from "../images/private-equity-logo.svg";
 import logo from "../images/logo_new.png";
-import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <footer className="bg-[#0B0D1F] text-white py-12 sm:py-16 relative overflow-hidden">
-      {/* Background gradient effect similar to HeroHome */}
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0B1A3F] to-[#0B0D1F] opacity-80"></div>
-        <div 
-          className="absolute inset-0 bg-no-repeat bg-cover bg-center opacity-20"
-          style={{ backgroundImage: "url('/hubfs/hero-bg-v1.svg')" }}
-        ></div>
-      </div>
-      
-      <div className="container max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
-        <div className="flex flex-col md:flex-row justify-between items-start gap-8 md:gap-12">
-          
-          {/* Left Section */}
-          <div className="w-full md:w-1/2 max-w-md">
+    <footer className="bg-[#0B0D1F] text-white py-12 relative">
+      <div className="container mx-auto px-4 sm:px-6 max-w-6xl">
+        <div className="flex flex-col md:flex-row justify-between items-start gap-8">
+          {/* Left Section - Logo and tagline */}
+          <div className="w-full md:w-1/4">
             {/* Logo */}
-            <div className="mb-6 sm:mb-8">
-              <Link
-                to="/"
-                onClick={(e) => {
-                  e.preventDefault();
-                  const heroSection = document.getElementById("heroHomeSection");
-                  if (heroSection) {
-                    heroSection.scrollIntoView({ behavior: "smooth" });
-                  } else {
-                    window.scrollTo({ top: 0, behavior: "smooth" });
-                  }
-                }}
-                aria-label="Go to homepage"
-              >
-                <img src={logo} alt="Quanfia Logo" className="w-24 sm:w-28" />
-              </Link>
-            </div>
-
-            {/* Description */}
-            <p className="mb-6 sm:mb-8 text-sm sm:text-base text-gray-200 leading-relaxed max-w-lg">
-              Quanfia liberates finance industry professionals from time-consuming manual tasks so they can focus on <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-blue-100">higher-value work</span> and make faster, more informed strategic decisions.
-            </p>
-
-            {/* Private Equity Logo */}
-            {/* <div className="mb-6 sm:mb-8">
-              <img
-                src={privateEquityLogo}
-                alt="Private Equity Logo"
-                className="w-40 sm:w-56"
-              />
-            </div> */}
-
-            {/* Get a Demo Button */}
-            <div className="mt-4 sm:mt-6">
-              <button 
-                onClick={() => {
-                  document.dispatchEvent(
-                    new CustomEvent('requestDemo', { 
-                      detail: { action: 'openDemoPopup' } 
-                    })
-                  );
-                }}
-                className="group relative w-36 sm:w-40 cursor-pointer overflow-hidden rounded-full border border-gray-600 bg-transparent p-2 text-center font-medium"
-              >
-                <span className="inline-block text-sm sm:text-base transition-all duration-300 group-hover:translate-x-12 group-hover:opacity-0">
-                  Get a demo
-                </span>
-                <div className="absolute top-0 z-10 flex h-full w-full translate-x-12 items-center justify-center gap-2 text-white opacity-0 transition-all duration-300 group-hover:-translate-x-1 group-hover:opacity-100">
-                  <span>Get a demo</span>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-arrow-right"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-                </div>
-                <div className="absolute left-[20%] top-[40%] h-0 w-0 scale-0 rounded-lg bg-[#F8BB38] transition-all duration-300 group-hover:left-[0%] group-hover:top-[0%] group-hover:h-full group-hover:w-full group-hover:scale-[1.8] group-hover:bg-[#F8BB38]"></div>
-              </button>
-            </div>
-          </div>
-
-          {/* Right Section - Navigation and Info */}
-          <div className="w-full md:w-1/2 flex flex-wrap gap-x-8 gap-y-8 mt-8 md:mt-0">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-              {/* Navigation Links */}
-            <div className="w-full sm:w-auto">
-              <h4 className="text-base sm:text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-blue-100 mb-3 sm:mb-4">
-                Navigation
-              </h4>
-              <ul className="space-y-2 sm:space-y-3">
-                <li>
-                  <Link to="/" className="text-sm sm:text-base text-gray-200 hover:text-blue-300 transition-colors">
-                    Home
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/about" className="text-sm sm:text-base text-gray-200 hover:text-blue-300 transition-colors">
-                    About
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/insights" className="text-sm sm:text-base text-gray-200 hover:text-blue-300 transition-colors">
-                    Insights
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/careers" className="text-sm sm:text-base text-gray-200 hover:text-blue-300 transition-colors">
-                    Careers
-                  </Link>
-                </li>
-              </ul>
+            <img src={logo} alt="ChaiCode Logo" className="w-24 sm:w-28" />
+            
+            <p className="text-sm text-gray-400 mb-4">Home for programmers</p>
+            
+            {/* Social Media Icons */}
+            <div className="flex space-x-4 mb-6">
+              <a href="https://www.youtube.com/@chaiaurcode" className="text-gray-400 hover:text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-youtube"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"></path><path d="m10 15 5-3-5-3z"></path></svg>
+              </a>
+              <a href="https://www.instagram.com/hiteshchoudharyofficial/?hl=en" className="text-gray-400 hover:text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-instagram"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
+              </a>
+              <a href="https://github.com/hiteshchoudhary" className="text-gray-400 hover:text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-github"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
+              </a>
+              <a href="https://x.com/hiteshdotcom" className="text-gray-400 hover:text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-twitter"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg>
+              </a>
+              <a href="https://in.linkedin.com/in/hiteshchoudhary" className="text-gray-400 hover:text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect width="4" height="12" x="2" y="9"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+              </a>
+              <a href="https://discord.com/invite/WDrH3zuWFb" className="text-gray-400 hover:text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-message-square"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+              </a>
             </div>
             
-            {/* Social Links */}
-            <div className="w-full sm:w-auto">
-              <h4 className="text-base sm:text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-blue-100 mb-3 sm:mb-4">
-                Social
-              </h4>
-              <ul className="space-y-2 sm:space-y-3">
-                <li>
-                  <a 
-                    href="https://www.linkedin.com/company/quanfia/" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="text-sm sm:text-base text-gray-200 hover:text-blue-300 transition-colors inline-flex items-center gap-2"
-                  >
-                    LinkedIn
-                    <svg className="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M7 17L17 7"></path>
-                      <path d="M7 7h10v10"></path>
-                    </svg>
-                  </a>
-                </li>
-                <li>
-                  <a 
-                    href="https://twitter.com/quanfia_" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="text-sm sm:text-base text-gray-200 hover:text-blue-300 transition-colors inline-flex items-center gap-2"
-                  >
-                    X
-                    <svg className="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M7 17L17 7"></path>
-                      <path d="M7 7h10v10"></path>
-                    </svg>
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            </div>
-  
-            {/* Contact - NEW SECTION */}
-            <div className="w-full sm:w-auto">
-              <h4 className="text-base sm:text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-blue-100 mb-3 sm:mb-4">
-                Contact
-              </h4>
-              <ul className="space-y-2 sm:space-y-3">
-                <li>
-                  <a 
-                    href="mailto:info@quanfia.com" 
-                    className="text-sm sm:text-base text-gray-200 hover:text-blue-300 transition-colors inline-flex items-center gap-2"
-                  >
-                    info@quanfia.com
-                    <svg className="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <rect width="20" height="16" x="2" y="4" rx="2"></rect>
-                      <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-                    </svg>
-                  </a>
-                </li>
-              </ul>
-            </div>
+            <p className="text-xs text-gray-500">© 2025 ChaiCode. All rights reserved.</p>
+          </div>
+          
+          {/* Middle Sections - Products */}
+          <div className="w-full md:w-1/4">
+            <h4 className="text-lg font-semibold mb-4">Products</h4>
+            <ul className="space-y-2">
+              <li>
+                <a href="https://courses.chaicode.com/learn" className="text-gray-400 hover:text-white transition-colors">
+                  Courses
+                </a>
+              </li>
+              <li>
+                <a href="https://courses.chaicode.com/learn/view-all?show=batch&type=17t" className="text-gray-400 hover:text-white transition-colors">
+                  Cohort
+                </a>
+              </li>
+              <li>
+                <a href="https://courses.chaicode.com/learn/batch/about?bundleId=226894" className="text-gray-400 hover:text-white transition-colors">
+                  Coding Hero
+                </a>
+              </li>
+              <li>
+                <a href="https://freeapi.app/" className="text-gray-400 hover:text-white transition-colors">
+                  FreeAPI
+                </a>
+              </li>
+              <li>
+                <a href="https://masterji.co/login" className="text-gray-400 hover:text-white transition-colors">
+                  Masterji
+                </a>
+              </li>
+            </ul>
+          </div>
+          
+          {/* Right Section - Resources */}
+          <div className="w-full md:w-1/4">
+            <h4 className="text-lg font-semibold mb-4">Resources</h4>
+            <ul className="space-y-2">
+              <li>
+                <a href="https://docs.chaicode.com/" className="text-gray-400 hover:text-white transition-colors">
+                  Docs
+                </a>
+              </li>
+              <li>
+                <a href="https://www.chaicode.com/privacy-policy" className="text-gray-400 hover:text-white transition-colors">
+                  Privacy Policy
+                </a>
+              </li>
+              <li>
+                <a href="https://www.chaicode.com/terms-of-services" className="text-gray-400 hover:text-white transition-colors">
+                  Terms of Service
+                </a>
+              </li>
+              <li>
+                <a href="/https://www.chaicode.com/pricing-policy" className="text-gray-400 hover:text-white transition-colors">
+                  Pricing Policy
+                </a>
+              </li>
+              <li>
+                <a href="https://www.chaicode.com/refund-policy" className="text-gray-400 hover:text-white transition-colors">
+                  Refund Policy
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
         
-        {/* Bottom Section with Copyright */}
-        <div className="border-t border-gray-800 mt-10 pt-6 flex flex-col sm:flex-row justify-between items-center">
-          <p className="text-xs sm:text-sm text-gray-400">
-            Copyright © {new Date().getFullYear()} QUANFIA. All rights reserved.
-          </p>
-          <div className="flex gap-6 mt-4 sm:mt-0">
-            <a href="/privacy-policy" className="text-xs sm:text-sm text-gray-400 hover:text-gray-300 transition-colors">
-              Privacy Policy
-            </a>
-            <a href="/terms" className="text-xs sm:text-sm text-gray-400 hover:text-gray-300 transition-colors">
-              Terms of Service
-            </a>
-          </div>
+        {/* Large logo at bottom */}
+        <div className="mt-16 flex justify-center">
+          <div className="text-9xl font-bold text-orange-800">CHAICODE</div>
         </div>
       </div>
     </footer>
