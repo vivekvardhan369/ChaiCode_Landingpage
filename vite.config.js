@@ -7,35 +7,48 @@ export default defineConfig({
   define: {
     'process.env': process.env
   },
-  plugins: [react({
-    // This ensures proper JSX runtime handling
-    jsxRuntime: 'automatic',
-    jsxImportSource: 'react'
-  })],
+  plugins: [react()],
   resolve: {
     alias: {
-      // Add specific aliases for React packages to ensure proper resolution
       'react': path.resolve(__dirname, './node_modules/react'),
       'react-dom': path.resolve(__dirname, './node_modules/react-dom'),
-      'react/jsx-runtime': path.resolve(__dirname, './node_modules/react/jsx-runtime')
+      'scheduler': path.resolve(__dirname, './node_modules/scheduler')
     }
   },
   build: {
+    sourcemap: false,
     commonjsOptions: {
       transformMixedEsModules: true,
     },
     rollupOptions: {
       output: {
-        manualChunks: (id) => {
-          if (id.includes('node_modules')) {
-            if (id.includes('react') || id.includes('scheduler')) {
-              return 'vendor-react';
-            }
-            return 'vendor';
-          }
-        }
+        // Use a simpler chunk approach
+        manualChunks: {
+          'vendor': [
+            'react',
+            'react-dom',
+            'react/jsx-runtime',
+            'scheduler',
+            'react-router-dom'
+          ],
+          'ui': [
+            'aos',
+            'framer-motion',
+            'react-slick',
+            'swiper',
+            'react-transition-group'
+          ]
+        },
+        // Ensure proper output format for modules
+        format: 'es'
       }
     },
     chunkSizeWarningLimit: 600,
+  },
+  server: {
+    // Ensure correct MIME types during development
+    fs: {
+      strict: true,
+    }
   }
 })
