@@ -21,36 +21,24 @@ export default defineConfig({
     commonjsOptions: {
       transformMixedEsModules: true,
     },
+    // Simplified rollup options without manual chunks to avoid the TypeError
     rollupOptions: {
       output: {
-        manualChunks: {
-          // Core React dependencies
-          vendor: ['react', 'react-dom', 'react-router-dom'],
-          
-          // UI-related libraries
-          ui: ['react-helmet', 'tailwindcss', 'aos', 'react-transition-group'],
-          
-          // Animation-related libraries
-          animations: ['framer-motion', '@react-spring/web'],
-          
-          // Carousel and slider libraries
-          sliders: ['react-slick', 'slick-carousel', 'swiper'],
-          
-          // Email and utility libraries
-          utils: ['@emailjs/browser', 'lucide-react'],
-          
-          // Components that might be large
-          components: [
-            './src/components/GoogleGeminiEffect.jsx',
-            './src/partials/ValuePropositionMain.jsx',
-            './src/partials/ChatServiceArchitecture.jsx',
-            './src/pages/About.jsx',
-            './src/pages/Home.jsx'
-          ]
+        // Using automatic chunking instead of manual specification
+        manualChunks(id) {
+          // Core dependencies
+          if (id.includes('node_modules')) {
+            if (id.includes('react')) {
+              return 'vendor-react';
+            }
+            
+            // Other node modules
+            return 'vendor';
+          }
         }
       }
     },
-    // Increase the warning limit if needed
+    // Increase the warning limit
     chunkSizeWarningLimit: 600,
   }
 })
