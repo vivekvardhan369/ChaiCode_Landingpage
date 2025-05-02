@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import path from 'path'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -14,31 +15,26 @@ export default defineConfig({
         replacement: (val) => {
           return val.replace(/^~/, "");
         },
-      },
+      }
     ],
   },
   build: {
     commonjsOptions: {
       transformMixedEsModules: true,
     },
-    // Simplified rollup options without manual chunks to avoid the TypeError
     rollupOptions: {
+      external: ['react/jsx-runtime'],
       output: {
-        // Using automatic chunking instead of manual specification
-        manualChunks(id) {
-          // Core dependencies
+        manualChunks: (id) => {
           if (id.includes('node_modules')) {
-            if (id.includes('react')) {
+            if (id.includes('react') || id.includes('scheduler')) {
               return 'vendor-react';
             }
-            
-            // Other node modules
             return 'vendor';
           }
         }
       }
     },
-    // Increase the warning limit
     chunkSizeWarningLimit: 600,
   }
 })
